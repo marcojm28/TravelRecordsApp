@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelRecordsApp.AddUser">
+    <ContentPage.Content>
+        <StackLayout Padding="15" >
+            <!--<Image Source="AddUserIcon.png"
+                   WidthRequest="150"/>-->
+            <Entry x:Name="entryUser"
+                   Placeholder="Correo Electrónico"
+                   Keyboard="Email"/>
+            <Entry x:Name="entryPassword"
+                Placeholder="Contraseña" 
+                IsPassword="True"/>
+            <Entry x:Name="entryNombreApellido"
+                Placeholder="Nombres y apellidos"/>
+            <StackLayout Padding="10,15,10,0">
+                <Button x:Name="buttonAddNewUser" 
+                    Text="Registrar Usuario"
+                     Clicked="ButtonAddNewUser_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

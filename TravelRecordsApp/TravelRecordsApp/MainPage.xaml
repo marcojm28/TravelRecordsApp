@@ -4,11 +4,31 @@
              xmlns:local="clr-namespace:TravelRecordsApp"
              x:Class="TravelRecordsApp.MainPage">
 
-    <StackLayout>
+    <StackLayout Padding="15" VerticalOptions="Center">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Entry x:Name="entryUser"
+               Placeholder="Dirección de correo"
+               Keyboard="Email"/>
+        <Entry x:Name="entryPassword"
+               Placeholder="Contraseña"
+               IsPassword="True"/>
+
+        <Button x:Name="buttonLogin"
+                Text="Ingresar"
+                Clicked="ButtonLogin_Clicked"
+                Margin="0,35,0,0"/>
+        <FlexLayout>
+            <Label Text="¿No tienes una cuenta? "/>
+            <Label x:Name="newUser"
+                   Text="Regístrate"
+                   TextDecorations="Underline"
+                   FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tapNewUser" Tapped="TapNewUser_Tapped" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label> 
+        </FlexLayout>
+
     </StackLayout>
 
 </ContentPage>

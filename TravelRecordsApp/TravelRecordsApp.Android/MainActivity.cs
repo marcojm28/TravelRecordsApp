@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace TravelRecordsApp.Droid
 {
@@ -19,7 +20,12 @@ namespace TravelRecordsApp.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            string nombreArchivo = "bd_travelRecords.sqlite";
+            string rutaCarpeta = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string rutaCompleta = Path.Combine(rutaCarpeta, nombreArchivo);
+
+            LoadApplication(new App(rutaCompleta));
         }
     }
 }

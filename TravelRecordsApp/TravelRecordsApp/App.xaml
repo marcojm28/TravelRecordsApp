@@ -3,6 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TravelRecordsApp.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="colorEntry">#01A9DB</Color>
+            <Color x:Key="colorTextButton">#FFFFFF</Color>
+            <Color x:Key="colorBackgroundButton">#084B8A</Color>
+            <Style TargetType="Entry">
+                <Setter
+                Property="TextColor"
+                Value="{StaticResource colorEntry}"/>
+                <Setter
+                Property="FontFamily"
+                Value="Arial"/>
+                <Setter
+                Property="FontAttributes"
+                Value="Bold"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="TextColor"
+                    Value="{StaticResource colorTextButton}"/>
+                <Setter Property="BackgroundColor"
+                Value="{StaticResource colorBackgroundButton}"/>
+            </Style>
+            <Style TargetType="TabbedPage">
+                <Setter Property="BackgroundColor"
+                Value="{StaticResource colorBackgroundButton}"/>
+            </Style>
 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
