@@ -4,14 +4,14 @@
              x:Class="TravelRecordsApp.AddUser">
     <ContentPage.Content>
         <StackLayout Padding="15" >
-            <!--<Image Source="AddUserIcon.png"
-                   WidthRequest="150"/>-->
+            <Image Source="AddUserIcon.png"
+                   WidthRequest="80"/>
             <Entry x:Name="entryUser"
                    Placeholder="Correo Electrónico"
                    Keyboard="Email"/>
             <Entry x:Name="entryPassword"
                 Placeholder="Contraseña" 
-                IsPassword="True"/>
+                IsPassword="True"/> 
             <Entry x:Name="entryNombreApellido"
                 Placeholder="Nombres y apellidos"/>
             <StackLayout Padding="10,15,10,0">

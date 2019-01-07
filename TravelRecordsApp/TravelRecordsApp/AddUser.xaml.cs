@@ -24,12 +24,29 @@ namespace TravelRecordsApp
             {
                 try
                 {
+                    conn.CreateTable<User>();
+
                     User usuario = new User()
                     {
                         EmailUser = entryUser.Text,
                         PasswordUser = entryPassword.Text,
                         NameUser = entryNombreApellido.Text
                     };
+
+                    //IEnumerable<User> foo = db.Query<User>("select * from ESItemdb where Group = \"Messier\"");
+                    IEnumerable<User> query = conn.Query<User>("select * from User where EmailUser = ?",usuario.EmailUser.ToString().Trim());
+                    List<User> listUser = query.ToList<User>();
+
+                    if (listUser.Count > 0)
+                    {
+                        throw new Exception("La cuenta de correo ya fue registrada anteriormente.");
+                    }
+                    else
+                    {
+                        conn.Insert(usuario);
+                        DisplayAlert("Éxito", "La cuenta fue registrada con Éxito", "Aceptar");
+                    }
+
                 }
                 catch (Exception ex)
                 {
