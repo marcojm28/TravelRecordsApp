@@ -61,7 +61,7 @@ namespace TravelRecordsApp
                             }
                             else
                             {
-                                DisplayAlert("", "El usuario ingresado no existe.", "Aceptar");
+                                DisplayAlert("", "Usuario o contraseña incorrectos.", "Aceptar");
                             }
 
                             
