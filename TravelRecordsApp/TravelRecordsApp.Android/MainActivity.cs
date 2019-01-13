@@ -21,6 +21,9 @@ namespace TravelRecordsApp.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+            //maps
+            Xamarin.FormsMaps.Init(this, savedInstanceState);
+
             string nombreArchivo = "bd_travelRecords.sqlite";
             string rutaCarpeta = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string rutaCompleta = Path.Combine(rutaCarpeta, nombreArchivo);

@@ -25,6 +25,9 @@ namespace TravelRecordsApp.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+            //maps
+            Xamarin.FormsMaps.Init();
+
             string nombreArchivo = "bd_travelRecords.sqlite";
             string rutaCarpeta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "..", "Library", "DataBases");
             string rutaCompleta = Path.Combine(rutaCarpeta, nombreArchivo);
