@@ -36,5 +36,9 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Se necesita obtener la ubicación para utilizar la aplicación</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Se necesita permiso para usar el calendario</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Se necesita permiso para usar el bluetooth</string>
 </dict>
 </plist>

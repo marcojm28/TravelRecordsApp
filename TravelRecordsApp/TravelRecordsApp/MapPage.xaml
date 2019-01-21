@@ -5,6 +5,7 @@
              x:Class="TravelRecordsApp.MapPage">
 
     <maps:Map x:Name="mapLocation"
+            IsShowingUser="True"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"/>
 

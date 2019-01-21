@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using TravelRecordsApp.Model;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 
 namespace TravelRecordsApp
 {
@@ -15,6 +17,8 @@ namespace TravelRecordsApp
         {
             InitializeComponent();
         }
+
+
 
         private void ButtonLogin_Clicked(object sender, EventArgs e)
         {
