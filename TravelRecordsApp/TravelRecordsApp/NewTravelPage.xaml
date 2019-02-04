@@ -8,9 +8,35 @@
                      Text="Guardar"
                      Clicked="ToolBarGuardar_Clicked"/>
     </ContentPage.ToolbarItems>
-    <StackLayout Margin="15">
+    <StackLayout Margin="10">
         <Entry x:Name="entryExperience"
             Placeholder="Escribe tu experiencia"/>
+        <ListView x:Name="ListViewVenue"
+                  HorizontalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding name}"/>
+                            <Label Grid.Row="1"
+                                   Text="{Binding location.address}"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding location.distance}"/>
+                            
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

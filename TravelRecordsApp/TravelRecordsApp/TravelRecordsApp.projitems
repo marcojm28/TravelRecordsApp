@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -28,6 +29,7 @@
       <DependentUpon>HomePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Logic\VenueLogic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -37,6 +39,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\Post.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Venue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NewTravelPage.xaml.cs">
       <DependentUpon>NewTravelPage.xaml</DependentUpon>
       <SubType>Code</SubType>
