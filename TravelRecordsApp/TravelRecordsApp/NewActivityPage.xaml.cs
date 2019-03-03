@@ -13,9 +13,9 @@ using TravelRecordsApp.Logic;
 namespace TravelRecordsApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewTravelPage : ContentPage
+    public partial class NewActivityPage : ContentPage
     {
-        public NewTravelPage()
+        public NewActivityPage()
         {
             InitializeComponent();
         }
@@ -39,9 +39,20 @@ namespace TravelRecordsApp
             {
                 try
                 {
+                    var selectedVenue = ListViewVenue.SelectedItem as Venue;
+                    var firtsCategory = selectedVenue.categories.FirstOrDefault();
+
                     Post post = new Post()
                     {
-                        Experience = entryExperience.Text
+                        Experience = entryExperience.Text,
+                        CategoryId = firtsCategory.id,
+                        CategoryName = firtsCategory.name,
+                        Address = selectedVenue.location.address,
+                        Distance = selectedVenue.location.distance,
+                        Longitude = selectedVenue.location.lng,
+                        Latitude = selectedVenue.location.lat,
+                        VenueName = selectedVenue.name
+
                     };
 
                     conn.CreateTable<Post>();
@@ -49,13 +60,17 @@ namespace TravelRecordsApp
 
                     if (row >= 1)
                     {
-                        DisplayAlert("Éxito", "La experiencia fue ingresada correctamente", "Aceptar");
+                        DisplayAlert("", "La actividad fue ingresada correctamente", "Aceptar");
                         entryExperience.Text = "";
                     }
                     else
                     {
                         DisplayAlert("Fracaso", "No se insertó la experiencia", "Aceptar");
                     }
+                }
+                catch (NullReferenceException nre)
+                {
+
                 }
                 catch (Exception ex)
                 {

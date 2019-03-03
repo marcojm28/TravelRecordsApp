@@ -2,16 +2,17 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TravelRecordsApp"
-             x:Class="TravelRecordsApp.HomePage">
+             x:Class="TravelRecordsApp.HomePage"
+            BarBackgroundColor="{StaticResource colorBackgroundGeneral}">
 
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text="Add"
+        <ToolbarItem Text="Añadir Actividades"
                      x:Name="toolbarHome"
                      Clicked="ToolbarHome_Clicked"
                      /> 
     </TabbedPage.ToolbarItems>
-    <local:HistoryPage Title="History"/>
-    <local:MapPage Title="Map"/>
+    <local:HistoryPage Title="Actividades"/>
+    <local:MapPage Title="Ubicación"/>
     <local:ProfilePage Title="Profile"/> 
 
 </TabbedPage>

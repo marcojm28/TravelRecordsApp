@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TravelRecordsApp"
              x:Class="TravelRecordsApp.MainPage">
-
+    
+    
     <StackLayout Padding="15" VerticalOptions="Center">
         <!-- Place new controls here -->
         <Image Source="travelRecordLogin.png"

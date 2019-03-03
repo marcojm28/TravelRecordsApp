@@ -13,14 +13,17 @@ namespace TravelRecordsApp
         public App()
         {
             InitializeComponent();
-
+            
             MainPage = new NavigationPage(new MainPage());
+
+            //MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Green };
         }
 
         public App(string rutaBD)
         {
             InitializeComponent();
 
+            //MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Green };
             MainPage = new NavigationPage(new MainPage());
 
             _RUTABD = rutaBD;

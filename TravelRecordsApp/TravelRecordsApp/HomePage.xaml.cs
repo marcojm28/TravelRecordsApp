@@ -20,7 +20,7 @@ namespace TravelRecordsApp
 
         private void ToolbarHome_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new NewTravelPage());
+            Navigation.PushAsync(new NewActivityPage());
         }
 
         protected override void OnAppearing()

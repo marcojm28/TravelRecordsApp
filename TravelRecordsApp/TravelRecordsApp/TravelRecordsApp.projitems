@@ -40,8 +40,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\Post.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Venue.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)NewTravelPage.xaml.cs">
-      <DependentUpon>NewTravelPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)NewActivityPage.xaml.cs">
+      <DependentUpon>NewActivityPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ProfilePage.xaml.cs">
@@ -74,7 +74,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)NewTravelPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)NewActivityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -86,6 +86,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AddUserIcon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Img\AddUserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Img\" />
   </ItemGroup>
 </Project>

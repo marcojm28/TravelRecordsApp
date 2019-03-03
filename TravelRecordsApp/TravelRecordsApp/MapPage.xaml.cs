@@ -10,6 +10,7 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
+using TravelRecordsApp.Model;
 
 namespace TravelRecordsApp
 {
@@ -82,6 +83,53 @@ namespace TravelRecordsApp
             }
 
             GetLocation();
+
+            using (var conn = new SQLite.SQLiteConnection(App._RUTABD))
+            {
+                conn.CreateTable<Post>();
+
+                List<Post> listaEnvio = new List<Post>();
+
+                listaEnvio = conn.Table<Post>().ToList();
+
+                DisplayInMap(listaEnvio);
+
+                //try
+                //{
+
+                //    conn.CreateTable<Post>();
+
+                //    List<Post> listaEnvio = new List<Post>();
+                //}
+                //catch (Exception ex)
+                //{
+                //    DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                //}
+            }
+        }
+
+        private void DisplayInMap(List<Post> listPost)
+        {
+            foreach (var post in listPost)
+            {
+                try
+                {
+                    var Position = new Xamarin.Forms.Maps.Position(post.Latitude, post.Longitude);
+
+                    var Pin = new Xamarin.Forms.Maps.Pin()
+                    {
+                        Type = Xamarin.Forms.Maps.PinType.SavedPin,
+                        Position = Position,
+                        Label = post.VenueName,
+                        Address = post.Address
+                    };
+
+                    mapLocation.Pins.Add(Pin);
+
+                }
+                catch (NullReferenceException nre) { }
+                catch (Exception ex) { }
+            }
         }
 
         protected override void OnDisappearing()
@@ -101,7 +149,7 @@ namespace TravelRecordsApp
         private void MoveMap(Position position)
         {
             var center = new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude);
-            var span = new Xamarin.Forms.Maps.MapSpan(center, 1, 1);
+            var span = new Xamarin.Forms.Maps.MapSpan(center, 0.01, 0.01);
 
             mapLocation.MoveToRegion(span);
         }
@@ -114,6 +162,8 @@ namespace TravelRecordsApp
                 var position = await locator.GetPositionAsync();
 
                 MoveMap(position);
+
+                
             }
         }
     }

@@ -10,13 +10,13 @@ using TravelRecordsApp.Model;
 
 namespace TravelRecordsApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddUser : ContentPage
-	{
-		public AddUser ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddUser : ContentPage
+    {
+        public AddUser()
+        {
+            InitializeComponent();
+        }
 
         private void ButtonAddNewUser_Clicked(object sender, EventArgs e)
         {
@@ -33,10 +33,48 @@ namespace TravelRecordsApp
                         NameUser = entryNombreApellido.Text
                     };
 
-                    //IEnumerable<User> foo = db.Query<User>("select * from ESItemdb where Group = \"Messier\"");
-                    IEnumerable<User> query = conn.Query<User>("select * from User where EmailUser = ?",usuario.EmailUser.ToString().Trim());
+                    
+                    
+                    if (String.IsNullOrEmpty(entryPassword.Text) || String.IsNullOrEmpty(entryConfirmPassword.Text) || String.IsNullOrEmpty(entryUser.Text) || String.IsNullOrEmpty(entryNombreApellido.Text))
+                    {
+                        if (String.IsNullOrEmpty(entryPassword.Text))
+                        {
+                            entryPassword.PlaceholderColor = Color.Red;
+                            entryPassword.Placeholder = "Ingrese una contraseña";
+                        }
+                        
+
+                        if (String.IsNullOrEmpty(entryConfirmPassword.Text))
+                        {
+                            entryConfirmPassword.PlaceholderColor = Color.Red;
+                            entryConfirmPassword.Placeholder = "Confirme la contraseña";
+                        }
+
+                        if (String.IsNullOrEmpty(entryUser.Text))
+                        {
+                            entryUser.PlaceholderColor = Color.Red;
+                            entryUser.Placeholder = "Ingrese el correo";
+                        }
+
+                        if (String.IsNullOrEmpty(entryNombreApellido.Text))
+                        {
+                            entryNombreApellido.PlaceholderColor = Color.Red;
+                            entryNombreApellido.Placeholder = "Ingrese los nombres y apellidos";
+                        }
+
+                        return;
+                    }
+
+                    IEnumerable<User> query = conn.Query<User>("select * from User where EmailUser = ?", usuario.EmailUser.ToString().Trim());
                     List<User> listUser = query.ToList<User>();
 
+                    //validación contraseña
+                    if (entryPassword.Text != entryConfirmPassword.Text)
+                    {
+                        throw new Exception("La confirmación de la contraseña de coincide.");
+                    }
+
+                    //validación correo
                     if (listUser.Count > 0)
                     {
                         throw new Exception("La cuenta de correo ya fue registrada anteriormente.");
@@ -44,8 +82,10 @@ namespace TravelRecordsApp
                     else
                     {
                         conn.Insert(usuario);
-                        DisplayAlert("Éxito", "La cuenta fue registrada con Éxito", "Aceptar");
+                        DisplayAlert("", "La cuenta fue registrada con Éxito", "Aceptar");
                     }
+
+
 
                 }
                 catch (Exception ex)
