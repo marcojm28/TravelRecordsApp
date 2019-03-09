@@ -9,7 +9,7 @@
                      Clicked="ToolBarGuardar_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout Margin="10">
-        <Entry x:Name="entryExperience"
+        <Entry x:Name="entryNewActivity"
             Placeholder="Ingrese una nueva actividad"/>
         <ListView x:Name="ListViewVenue"
                   HorizontalOptions="FillAndExpand">

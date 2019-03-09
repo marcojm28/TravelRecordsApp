@@ -16,6 +16,12 @@ namespace TravelRecordsApp
         public MainPage()
         {
             InitializeComponent();
+
+            var assembly = typeof(MainPage);
+
+            //imageLogin.Source = ImageSource.FromResource("TravelRecordsApp.Img.AddUserIcon.png", assembly);
+
+            //imageLogin.Source = ImageSource.FromFile("Img/geoImage.png");
         }
 
 

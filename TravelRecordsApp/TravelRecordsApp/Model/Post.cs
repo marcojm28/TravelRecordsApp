@@ -27,5 +27,9 @@ namespace TravelRecordsApp.Model
 
         public double Distance { get; set; }
 
+        public DateTime DateTimeActivity { get; set; }
+
+        public string User { get; set; }
+
     }
 }

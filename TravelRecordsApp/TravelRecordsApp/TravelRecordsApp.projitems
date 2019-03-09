@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)geoImage.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +90,9 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Img\AddUserIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Img\" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Img\geoImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Img\geo.png" />
   </ItemGroup>
 </Project>

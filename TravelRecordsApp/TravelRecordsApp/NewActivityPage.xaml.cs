@@ -39,33 +39,41 @@ namespace TravelRecordsApp
             {
                 try
                 {
-                    var selectedVenue = ListViewVenue.SelectedItem as Venue;
-                    var firtsCategory = selectedVenue.categories.FirstOrDefault();
-
-                    Post post = new Post()
+                    if (!String.IsNullOrEmpty(entryNewActivity.Text))
                     {
-                        Experience = entryExperience.Text,
-                        CategoryId = firtsCategory.id,
-                        CategoryName = firtsCategory.name,
-                        Address = selectedVenue.location.address,
-                        Distance = selectedVenue.location.distance,
-                        Longitude = selectedVenue.location.lng,
-                        Latitude = selectedVenue.location.lat,
-                        VenueName = selectedVenue.name
+                        var selectedVenue = ListViewVenue.SelectedItem as Venue;
+                        var firtsCategory = selectedVenue.categories.FirstOrDefault();
 
-                    };
+                        Post post = new Post()
+                        {
+                            Experience = entryNewActivity.Text,
+                            CategoryId = firtsCategory.id,
+                            CategoryName = firtsCategory.name,
+                            Address = selectedVenue.location.address,
+                            Distance = selectedVenue.location.distance,
+                            Longitude = selectedVenue.location.lng,
+                            Latitude = selectedVenue.location.lat,
+                            VenueName = selectedVenue.name,
+                            DateTimeActivity = DateTime.Now
 
-                    conn.CreateTable<Post>();
-                    int row = conn.Insert(post);
+                        };
 
-                    if (row >= 1)
-                    {
-                        DisplayAlert("", "La actividad fue ingresada correctamente", "Aceptar");
-                        entryExperience.Text = "";
+                        conn.CreateTable<Post>();
+                        int row = conn.Insert(post);
+
+                        if (row >= 1)
+                        {
+                            DisplayAlert("", "La actividad fue ingresada correctamente", "Aceptar");
+                            entryNewActivity.Text = "";
+                        }
+                        else
+                        {
+                            DisplayAlert("Fracaso", "No se insertó la actividad", "Aceptar");
+                        }
                     }
                     else
                     {
-                        DisplayAlert("Fracaso", "No se insertó la experiencia", "Aceptar");
+                        DisplayAlert("", "Ingrese la actividad.", "Aceptar");
                     }
                 }
                 catch (NullReferenceException nre)

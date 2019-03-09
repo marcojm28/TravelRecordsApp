@@ -7,8 +7,9 @@
     
     <StackLayout Padding="15" VerticalOptions="Center">
         <!-- Place new controls here -->
-        <Image Source="travelRecordLogin.png"
-                   WidthRequest="100"/>
+        <Image x:Name="imageLogin" 
+               WidthRequest="150"
+               Source="geo.png"/>
         <Entry x:Name="entryUser"
                Placeholder="Dirección de correo"
                Keyboard="Email"/>

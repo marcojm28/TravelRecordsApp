@@ -134,6 +134,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\travelRecordLogin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\drawable\geoImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\geo.png" />
+  </ItemGroup>
   <Import Project="..\TravelRecordsApp\TravelRecordsApp.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

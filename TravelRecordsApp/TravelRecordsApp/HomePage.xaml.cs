@@ -33,6 +33,8 @@ namespace TravelRecordsApp
                 {
                     List<Post> listPost = new List<Post>();
 
+                    //conn.DropTable<Post>();
+
                     conn.CreateTable<Post>();
 
                     listPost = conn.Table<Post>().ToList();
