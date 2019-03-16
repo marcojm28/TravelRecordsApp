@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using TravelRecordsApp.Model;
 using Plugin.Geolocator;
 using TravelRecordsApp.Logic;
+using Rg.Plugins.Popup.Services;
 
 namespace TravelRecordsApp
 {
@@ -23,14 +24,28 @@ namespace TravelRecordsApp
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            var LoadingPage = new CustomGIFLoader();
+            try
+            {
+                await PopupNavigation.PushAsync(LoadingPage);
 
-            var locator = CrossGeolocator.Current;
+                var locator = CrossGeolocator.Current;
 
-            var position = await locator.GetPositionAsync();
+                var position = await locator.GetPositionAsync();
 
-            var venue = await VenueLogic.GetVenues(position.Latitude,position.Longitude);
+                var venue = await VenueLogic.GetVenues(position.Latitude, position.Longitude);
 
-            ListViewVenue.ItemsSource = venue;
+                ListViewVenue.ItemsSource = venue;
+
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+            }
+            finally
+            {
+                await PopupNavigation.RemovePageAsync(LoadingPage);
+            }
         }
 
         private void ToolBarGuardar_Clicked(object sender, EventArgs e)

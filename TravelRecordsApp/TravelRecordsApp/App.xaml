@@ -23,9 +23,11 @@
             </Style>
             <Style TargetType="Button">
                 <Setter Property="TextColor"
-                    Value="{StaticResource colorTextButton}"/>
+                 Value="{StaticResource colorTextButton}"/>
                 <Setter Property="BackgroundColor"
-                Value="{StaticResource colorBackgroundButton}"/>
+                 Value="{StaticResource colorBackgroundButton}"/>
+                <Setter Property="BorderRadius"
+                 Value="20" />
             </Style>
             <Style TargetType="TabbedPage">
                 <Setter Property="BackgroundColor"

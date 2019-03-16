@@ -8,11 +8,13 @@ using Xamarin.Forms;
 using TravelRecordsApp.Model;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
+using Rg.Plugins.Popup.Services;
 
 namespace TravelRecordsApp
 {
     public partial class MainPage : ContentPage
     {
+
         public MainPage()
         {
             InitializeComponent();
@@ -24,14 +26,22 @@ namespace TravelRecordsApp
             //imageLogin.Source = ImageSource.FromFile("Img/geoImage.png");
         }
 
+        BusyIndicator busyIndicator = new BusyIndicator();
 
-
-        private void ButtonLogin_Clicked(object sender, EventArgs e)
+        private async void ButtonLogin_Clicked(object sender, EventArgs e)
         {
+            var LoadingPage = new CustomGIFLoader();
+
+            await PopupNavigation.PushAsync(LoadingPage);
+
             using (var conn = new SQLite.SQLiteConnection(App._RUTABD))
             {
+                
                 try
                 {
+                    busyIndicator.ShowIndicator();
+
+
                     bool userEmpty, passwordEmpty;
 
                     userEmpty = String.IsNullOrEmpty(entryUser.Text);
@@ -39,17 +49,20 @@ namespace TravelRecordsApp
 
                     if (userEmpty)
                     {
-                        DisplayAlert("", "Debe ingresar un correo", "OK");
+                        await PopupNavigation.RemovePageAsync(LoadingPage);
+                        await DisplayAlert("", "Debe ingresar un correo", "OK");
                     }
                     else if (passwordEmpty)
                     {
-                        DisplayAlert("", "Debe ingresar una contraseña", "OK");
+                        await PopupNavigation.RemovePageAsync(LoadingPage);
+                        await DisplayAlert("", "Debe ingresar una contraseña", "OK");
                     }
                     else
                     {
                         if (!(entryUser.Text.Contains("@") && entryUser.Text.Contains(".com")))
                         {
-                            DisplayAlert("", "Ingrese una dirección de correo valida", "OK");
+                            await PopupNavigation.RemovePageAsync(LoadingPage);
+                            await DisplayAlert("", "Ingrese una dirección de correo valida", "OK");
                         }
                         else
                         {
@@ -61,38 +74,43 @@ namespace TravelRecordsApp
                                 PasswordUser = entryPassword.Text.Trim()
                             };
 
-                            IEnumerable<User> query = conn.Query<User>("select * from User where EmailUser = ? and PasswordUser = ?", userLogin.EmailUser.Trim(),userLogin.PasswordUser.Trim());
+                            IEnumerable<User> query = conn.Query<User>("select * from User where EmailUser = ? and PasswordUser = ?", userLogin.EmailUser.Trim(), userLogin.PasswordUser.Trim());
                             List<User> listUser = query.ToList<User>();
 
                             if (listUser.Count > 0)
                             {
-                                DisplayAlert("", "Bienvenido " + listUser[0].NameUser.ToString().Trim(), "Aceptar");
-                                Navigation.PushAsync(new HomePage());
+                                await Navigation.PushAsync(new HomePage());
+                                await DisplayAlert("", "Bienvenido " + listUser[0].NameUser.ToString().Trim(), "Aceptar");
                             }
                             else
                             {
-                                DisplayAlert("", "Usuario o contraseña incorrectos.", "Aceptar");
+                                await PopupNavigation.RemovePageAsync(LoadingPage);
+                                await DisplayAlert("", "Usuario o contraseña incorrectos.", "Aceptar");
                             }
 
-                            
+
                         }
                     }
+
+                   
                 }
                 catch (Exception ex)
                 {
-                    DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                    await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                }
+                finally
+                {
+                    await PopupNavigation.RemovePageAsync(LoadingPage);
                 }
             }
         }
 
-        private void AddNewUser()
+        private async  void ButtonAddNewUser_Clicked(object sender, EventArgs e)
         {
+            var LoadingPage = new CustomGIFLoader();
+            await PopupNavigation.PushAsync(LoadingPage);
             Navigation.PushAsync(new AddUser());
-        }
-
-        private void TapNewUser_Tapped(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new AddUser());
+            await PopupNavigation.RemovePageAsync(LoadingPage);
         }
     }
 }

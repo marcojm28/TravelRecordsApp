@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 using System.IO;
 using Plugin.Permissions;
+using FFImageLoading.Forms.Droid;
+using Lottie.Forms.Droid;
 
 namespace TravelRecordsApp.Droid
 {
@@ -22,6 +24,11 @@ namespace TravelRecordsApp.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+
+            AnimationViewRenderer.Init();
             //maps
             Xamarin.FormsMaps.Init(this, savedInstanceState);
 

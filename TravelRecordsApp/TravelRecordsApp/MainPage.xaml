@@ -2,37 +2,72 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TravelRecordsApp"
+             xmlns:views="clr-namespace:TravelRecordsApp"
              x:Class="TravelRecordsApp.MainPage">
-    
-    
-    <StackLayout Padding="15" VerticalOptions="Center">
-        <!-- Place new controls here -->
-        <Image x:Name="imageLogin" 
-               WidthRequest="150"
-               Source="geo.png"/>
-        <Entry x:Name="entryUser"
-               Placeholder="Dirección de correo"
-               Keyboard="Email"/>
-        <Entry x:Name="entryPassword"
-               Placeholder="Contraseña"
-               IsPassword="True"/>
 
+    
+        <StackLayout Padding="15" VerticalOptions="Center">
+            <!-- Place new controls here -->
+            <Image x:Name="imageLogin" 
+               WidthRequest="100"
+               Source="geo"/>
+            
+        <!--<controls:BusyIndicator x:Name="BusyIndicator"/>-->
+        <!--<local:BusyIndicator x:Name="BusyIndicator" />-->
+        <!--<views:BusyIndicator/>-->
+        <Entry x:Name="entryUser" 
+               Placeholder="Dirección de correo"
+               Keyboard="Email"
+               Text="marcojm28@gmail.com"/>
+            <Entry x:Name="entryPassword"
+               Placeholder="Contraseña"
+               IsPassword="True"
+                   Text="4223602"/>
+        <!--<StackLayout Orientation="Horizontal">
+            <Label VerticalOptions="Center" FontAttributes="Bold" Text="Recordar Usuario en dispositivo"/>
+            <Switch x:Name="switchRememberUser" VerticalOptions="Center" IsToggled="false" OnColor="#32c621"/>
+        </StackLayout>-->
         <Button x:Name="buttonLogin"
                 Text="Ingresar"
                 Clicked="ButtonLogin_Clicked"
-                Margin="0,35,0,0"/>
-        <FlexLayout>
-            <Label Text="¿No tienes una cuenta? "/>
-            <Label x:Name="newUser"
+                Margin="0,15,0,0"/>
+            <Button x:Name="buttonAddNewUser"
+                    Text="Registrarse"
+                    Clicked="ButtonAddNewUser_Clicked"
+                    BackgroundColor="#42b72a"
+                    Margin="0,10,0,0"/>
+
+
+        <!--<FlexLayout>
+                <Label Text="¿No tienes una cuenta? "/>
+                <Label x:Name="newUser"
                    Text="Regístrate"
                    TextDecorations="Underline"
                    FontAttributes="Bold">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapNewUser" Tapped="TapNewUser_Tapped" NumberOfTapsRequired="1"/>
-                </Label.GestureRecognizers>
-            </Label> 
-        </FlexLayout>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapNewUser" Tapped="TapNewUser_Tapped" NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </FlexLayout>-->
+
 
     </StackLayout>
 
+       
+
 </ContentPage>
+    
+
+    <!--<ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <AbsoluteLayout>
+                <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       Color="Blue"  
+                       BackgroundColor="Transparent"/>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>-->

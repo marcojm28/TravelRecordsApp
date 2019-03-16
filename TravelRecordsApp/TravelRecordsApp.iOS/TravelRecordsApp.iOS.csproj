@@ -95,6 +95,10 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\1027-loading-gears.json" />
+    <BundleResource Include="Resources\47-gears.json" />
+    <BundleResource Include="Resources\935-loading.json" />
+    <BundleResource Include="Resources\2806-logo-loading-animationfunding-societies.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -148,6 +152,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>2.6.3</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Net.Http">
       <Version>2.2.29</Version>
     </PackageReference>
@@ -156,6 +163,9 @@
     </PackageReference>
     <PackageReference Include="Plugin.Permissions">
       <Version>4.0.2-beta</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.1.5.188</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.5.231</Version>
@@ -166,6 +176,9 @@
     <PackageReference Include="Xam.Plugin.Geolocator">
       <Version>4.5.4-beta</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.4.859</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="Xamarin.Forms.Maps">
       <Version>3.4.0.1009999</Version>
@@ -173,6 +186,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\AddUserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\loaderClock.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\loaderCircle.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\TravelRecordsApp\TravelRecordsApp.projitems" Label="Shared" />

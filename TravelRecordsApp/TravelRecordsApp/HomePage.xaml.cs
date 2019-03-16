@@ -39,6 +39,8 @@ namespace TravelRecordsApp
 
                     listPost = conn.Table<Post>().ToList();
 
+                    
+
                 }
                 catch (Exception ex)
                 {

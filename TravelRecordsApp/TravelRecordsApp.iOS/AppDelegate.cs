@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using FFImageLoading.Forms.Touch;
 using Foundation;
+using Lottie.Forms.iOS.Renderers;
 using UIKit;
 
 namespace TravelRecordsApp.iOS
@@ -27,6 +28,11 @@ namespace TravelRecordsApp.iOS
 
             //maps
             Xamarin.FormsMaps.Init();
+
+            AnimationViewRenderer.Init();
+
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            Rg.Plugins.Popup.Popup.Init();
 
             string nombreArchivo = "bd_travelRecords.sqlite";
             string rutaCarpeta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "..", "Library", "DataBases");

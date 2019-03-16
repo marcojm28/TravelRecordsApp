@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using TravelRecordsApp.Model;
+using Rg.Plugins.Popup.Services;
 
 namespace TravelRecordsApp
 {
@@ -18,8 +19,12 @@ namespace TravelRecordsApp
             InitializeComponent();
         }
 
-        private void ButtonAddNewUser_Clicked(object sender, EventArgs e)
+        private async void ButtonAddNewUser_Clicked(object sender, EventArgs e)
         {
+            var LoadingPage = new CustomGIFLoader();
+
+            await PopupNavigation.PushAsync(LoadingPage);
+
             using (var conn = new SQLite.SQLiteConnection(App._RUTABD))
             {
                 try
@@ -33,8 +38,8 @@ namespace TravelRecordsApp
                         NameUser = entryNombreApellido.Text
                     };
 
-                    
-                    
+
+
                     if (String.IsNullOrEmpty(entryPassword.Text) || String.IsNullOrEmpty(entryConfirmPassword.Text) || String.IsNullOrEmpty(entryUser.Text) || String.IsNullOrEmpty(entryNombreApellido.Text))
                     {
                         if (String.IsNullOrEmpty(entryPassword.Text))
@@ -42,7 +47,7 @@ namespace TravelRecordsApp
                             entryPassword.PlaceholderColor = Color.Red;
                             entryPassword.Placeholder = "Ingrese una contraseña";
                         }
-                        
+
 
                         if (String.IsNullOrEmpty(entryConfirmPassword.Text))
                         {
@@ -82,7 +87,7 @@ namespace TravelRecordsApp
                     else
                     {
                         conn.Insert(usuario);
-                        DisplayAlert("", "La cuenta fue registrada con Éxito", "Aceptar");
+                        await DisplayAlert("", "La cuenta fue registrada con Éxito", "Aceptar");
                     }
 
 
@@ -90,7 +95,12 @@ namespace TravelRecordsApp
                 }
                 catch (Exception ex)
                 {
-                    DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                    await PopupNavigation.RemovePageAsync(LoadingPage);
+                    await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                }
+                finally
+                {
+                    await PopupNavigation.RemovePageAsync(LoadingPage);
                 }
             }
         }
