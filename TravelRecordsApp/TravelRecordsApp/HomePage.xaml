@@ -13,6 +13,6 @@
     </TabbedPage.ToolbarItems>
     <local:HistoryPage Title="Actividades"/>
     <local:MapPage Title="Ubicación"/>
-    <local:ProfilePage Title="Profile"/> 
+    <local:CustomersPage Title="Clientes"/> 
 
 </TabbedPage>

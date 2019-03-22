@@ -99,6 +99,8 @@
     <BundleResource Include="Resources\47-gears.json" />
     <BundleResource Include="Resources\935-loading.json" />
     <BundleResource Include="Resources\2806-logo-loading-animationfunding-societies.json" />
+    <BundleResource Include="Resources\4901-location-finding.json" />
+    <BundleResource Include="Resources\eye-location.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -192,6 +194,15 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\loaderCircle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SagaLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OechsleLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RipleyLogo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\TravelRecordsApp\TravelRecordsApp.projitems" Label="Shared" />

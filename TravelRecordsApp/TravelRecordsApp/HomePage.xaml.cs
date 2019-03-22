@@ -16,6 +16,8 @@ namespace TravelRecordsApp
 		public HomePage ()
 		{
 			InitializeComponent ();
+
+
 		}
 
         private void ToolbarHome_Clicked(object sender, EventArgs e)
@@ -31,6 +33,8 @@ namespace TravelRecordsApp
             {
                 try
                 {
+
+
                     List<Post> listPost = new List<Post>();
 
                     //conn.DropTable<Post>();

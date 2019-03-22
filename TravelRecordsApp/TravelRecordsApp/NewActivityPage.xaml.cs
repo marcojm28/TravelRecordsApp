@@ -48,12 +48,18 @@ namespace TravelRecordsApp
             }
         }
 
-        private void ToolBarGuardar_Clicked(object sender, EventArgs e)
+        private async void ToolBarGuardar_Clicked(object sender, EventArgs e)
         {
+            var LoadingPage = new CustomGIFLoader();
+
+            await PopupNavigation.PushAsync(LoadingPage);
+
             using (var conn = new SQLite.SQLiteConnection(App._RUTABD))
             {
                 try
                 {
+
+
                     if (!String.IsNullOrEmpty(entryNewActivity.Text))
                     {
                         var selectedVenue = ListViewVenue.SelectedItem as Venue;
@@ -78,17 +84,19 @@ namespace TravelRecordsApp
 
                         if (row >= 1)
                         {
-                            DisplayAlert("", "La actividad fue ingresada correctamente", "Aceptar");
-                            entryNewActivity.Text = "";
+                            await PopupNavigation.RemovePageAsync(LoadingPage);
+                            await DisplayAlert("", "La actividad fue ingresada correctamente", "Aceptar");
+                            entryNewActivity.Text = string.Empty;
                         }
                         else
                         {
-                            DisplayAlert("Fracaso", "No se insertó la actividad", "Aceptar");
+                            await PopupNavigation.RemovePageAsync(LoadingPage);
+                            await DisplayAlert("Error", "No se insertó la actividad", "Aceptar");
                         }
                     }
                     else
                     {
-                        DisplayAlert("", "Ingrese la actividad.", "Aceptar");
+                        await DisplayAlert("", "Ingrese la actividad.", "Aceptar");
                     }
                 }
                 catch (NullReferenceException nre)
@@ -97,7 +105,11 @@ namespace TravelRecordsApp
                 }
                 catch (Exception ex)
                 {
-                    DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                    await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                }
+                finally
+                {
+                    await PopupNavigation.RemovePageAsync(LoadingPage);
                 }
             }
         }

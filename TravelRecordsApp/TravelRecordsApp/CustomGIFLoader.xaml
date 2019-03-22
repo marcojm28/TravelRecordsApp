@@ -20,7 +20,7 @@
                 <!--<Label Text="Cargando..." TextColor="Black" />-->
                 <forms:AnimationView 
 	                x:Name="animationView" 
-	                Animation="2806-logo-loading-animationfunding-societies.json" 
+	                Animation="eye-location.json" 
 	                Loop="True" 
 	                AutoPlay="True"
 	                VerticalOptions="FillAndExpand" 

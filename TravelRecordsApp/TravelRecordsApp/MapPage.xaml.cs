@@ -11,6 +11,7 @@ using Plugin.Permissions.Abstractions;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using TravelRecordsApp.Model;
+using Rg.Plugins.Popup.Services;
 
 namespace TravelRecordsApp
 {
@@ -30,8 +31,13 @@ namespace TravelRecordsApp
 
         private async void GetPermissions()
         {
+            var LoadingPage = new CustomGIFLoader();
+
             try
             {
+
+                
+                await PopupNavigation.PushAsync(LoadingPage);
 
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.LocationWhenInUse);
 
@@ -39,6 +45,7 @@ namespace TravelRecordsApp
                 {
                     if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.LocationWhenInUse))
                     {
+                        await PopupNavigation.RemovePageAsync(LoadingPage);
                         await DisplayAlert("", "Se necesita acceder a la ubicación del dispositivo", "Aceptar");
                     }
 
@@ -59,6 +66,7 @@ namespace TravelRecordsApp
                 }
                 else
                 {
+                    await PopupNavigation.RemovePageAsync(LoadingPage);
                     await DisplayAlert("Localización denegada", "no se tiene acceso a la ubicación del dispositivo", "Aceptar");
                 }
 
@@ -66,6 +74,10 @@ namespace TravelRecordsApp
             catch (Exception ex)
             {
                 await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+            }
+            finally
+            {
+                await PopupNavigation.RemovePageAsync(LoadingPage);
             }
 
         }

@@ -26,11 +26,13 @@ namespace TravelRecordsApp
             //imageLogin.Source = ImageSource.FromFile("Img/geoImage.png");
         }
 
-        BusyIndicator busyIndicator = new BusyIndicator();
+        
 
         private async void ButtonLogin_Clicked(object sender, EventArgs e)
         {
             var LoadingPage = new CustomGIFLoader();
+
+            
 
             await PopupNavigation.PushAsync(LoadingPage);
 
@@ -39,8 +41,6 @@ namespace TravelRecordsApp
                 
                 try
                 {
-                    busyIndicator.ShowIndicator();
-
 
                     bool userEmpty, passwordEmpty;
 

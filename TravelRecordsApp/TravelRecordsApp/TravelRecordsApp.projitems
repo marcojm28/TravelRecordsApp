@@ -17,16 +17,8 @@
       <DependentUpon>AddUser.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)AnimationLottie.xaml.cs">
-      <DependentUpon>AnimationLottie.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)BusyIndicator.xaml.cs">
-      <DependentUpon>BusyIndicator.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)CustomGIFLoader.xaml.cs">
       <DependentUpon>CustomGIFLoader.xaml</DependentUpon>
@@ -60,8 +52,8 @@
       <DependentUpon>NewActivityPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ProfilePage.xaml.cs">
-      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)CustomersPage.xaml.cs">
+      <DependentUpon>CustomersPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -84,7 +76,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ProfilePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)CustomersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -111,12 +103,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Img\geo.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BusyIndicator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)CustomLoaderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,8 +111,13 @@
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Img\2806-logo-loading-animationfunding-societies.json" />
     <Content Include="$(MSBuildThisFileDirectory)Img\47-gears.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Img\4901-location-finding.json" />
     <Content Include="$(MSBuildThisFileDirectory)Img\935-loading.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Img\eye-location.json" />
     <Content Include="$(MSBuildThisFileDirectory)Img\loaderClock.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)Img\OechsleLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Img\RipleyLogo.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Img\SagaLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)CustomGIFLoader.xaml">
@@ -136,11 +127,5 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Img\loaderCircle.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AnimationLottie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
