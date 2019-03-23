@@ -12,7 +12,7 @@
             <!-- Place new controls here -->
             <Image x:Name="imageLogin" 
                WidthRequest="100"
-               Source="geo"/>
+               Source="geoWord"/>
 
 
             <Entry x:Name="entryUser" 

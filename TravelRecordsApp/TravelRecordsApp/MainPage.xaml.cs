@@ -80,7 +80,7 @@ namespace TravelRecordsApp
                             if (listUser.Count > 0)
                             {
                                 await Navigation.PushAsync(new HomePage());
-                                await DisplayAlert("", "Bienvenido " + listUser[0].NameUser.ToString().Trim(), "Aceptar");
+                                //await DisplayAlert("", "Bienvenido " + listUser[0].NameUser.ToString().Trim(), "Aceptar");
                             }
                             else
                             {

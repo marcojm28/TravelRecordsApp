@@ -85,14 +85,6 @@
 
                     <FlexLayout Grid.Column="1" Direction="Column" Margin="5,5">
                         <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
-                        <Label TextColor="Black" Text="Marco Juarez Miranda"/>
 
                     </FlexLayout>
 

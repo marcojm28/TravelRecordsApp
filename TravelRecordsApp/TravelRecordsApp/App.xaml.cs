@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using TravelRecordsApp.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,9 +15,12 @@ namespace TravelRecordsApp
         public App()
         {
             InitializeComponent();
-            
-            MainPage = new NavigationPage(new MainPage());
 
+            MainPage = new SplashPage();
+            //MainPage = new NavigationPage(new MainPage());
+            //Timer tm = new Timer(new TimerCallback((state) => {
+            //this.InvokeOnMainThread(new Action(() => { }));
+            //}), null, 2000, Timeout.Infinite);
             //MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Green };
         }
 
@@ -24,7 +29,9 @@ namespace TravelRecordsApp
             InitializeComponent();
 
             //MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Green };
-            MainPage = new NavigationPage(new MainPage());
+            //MainPage = new NavigationPage(new MainPage());
+            MainPage = new SplashPage();
+
 
             _RUTABD = rutaBD;
         }

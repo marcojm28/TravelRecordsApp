@@ -46,6 +46,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\Post.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\SplashPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Venue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NewActivityPage.xaml.cs">
@@ -114,6 +115,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Img\4901-location-finding.json" />
     <Content Include="$(MSBuildThisFileDirectory)Img\935-loading.json" />
     <Content Include="$(MSBuildThisFileDirectory)Img\eye-location.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Img\geoWord.png" />
     <Content Include="$(MSBuildThisFileDirectory)Img\loaderClock.gif" />
     <Content Include="$(MSBuildThisFileDirectory)Img\OechsleLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Img\RipleyLogo.jpg" />
